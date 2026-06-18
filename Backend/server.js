@@ -9,9 +9,11 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-// Servir archivos estáticos desde la carpeta 'Frontend'
-app.use(express.static(path.join(__dirname, '../Frontend')));
+app.use(express.static(path.join(__dirname, '../'))); 
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../index.html'));
+});
 // Conexión a MySQL usando variables de entorno de Railway
 const db = mysql.createConnection({
   host: process.env.MYSQLHOST,
