@@ -27,7 +27,6 @@
       min-height: 100vh;
     }
 
-    /* ── HERO ── */
     .hero {
       background: linear-gradient(135deg, #0f1117 0%, #1a1230 50%, #0f1117 100%);
       border-bottom: 1px solid var(--border);
@@ -36,239 +35,67 @@
       overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -80px; right: -80px;
-      width: 320px; height: 320px;
-      background: radial-gradient(circle, rgba(108,99,255,0.18) 0%, transparent 70%);
-      pointer-events: none;
-    }
+    .hero-inner { max-width: 760px; margin: 0 auto; position: relative; }
 
-    .hero-inner {
-      max-width: 760px;
-      margin: 0 auto;
-      position: relative;
-    }
+    .eyebrow { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent2); font-weight: 500; margin-bottom: 18px; }
 
-    .eyebrow {
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--accent2);
-      font-weight: 500;
-      margin-bottom: 18px;
-    }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.15; color: var(--text); margin-bottom: 24px; }
 
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 700;
-      line-height: 1.15;
-      color: var(--text);
-      margin-bottom: 24px;
-    }
+    .hero h1 span { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-    .hero h1 span {
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+    .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
 
-    /* ── INFO BADGES ── */
-    .badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
-    }
+    .badge { display: flex; align-items: center; gap: 8px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; font-size: 13px; }
 
-    .badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 8px 16px;
-      font-size: 13px;
-    }
+    .badge-icon { width: 18px; height: 18px; opacity: 0.7; }
 
-    .badge-icon {
-      width: 18px; height: 18px;
-      opacity: 0.7;
-    }
+    .badge-label { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
 
-    .badge-label {
-      color: var(--muted);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+    .badge-value { color: var(--text); font-weight: 500; }
 
-    .badge-value {
-      color: var(--text);
-      font-weight: 500;
-    }
+    .main { max-width: 760px; margin: 0 auto; padding: 48px 40px 80px; }
 
-    /* ── MAIN CONTENT ── */
-    .main {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 48px 40px 80px;
-    }
+    .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
 
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 28px;
-    }
+    .section-title { font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); font-weight: 600; }
 
-    .section-title {
-      font-size: 13px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--muted);
-      font-weight: 600;
-    }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
 
-    .section-line {
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
+    #lista-tareas { display: flex; flex-direction: column; gap: 12px; }
 
-    /* ── TASK LIST ── */
-    #lista-tareas {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+    .tarea-card { display: flex; align-items: center; gap: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; text-decoration: none; color: inherit; transition: border-color 0.2s, background 0.2s, transform 0.15s; cursor: pointer; }
 
-    .tarea-card {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px 24px;
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.2s, background 0.2s, transform 0.15s;
-      cursor: pointer;
-    }
+    .tarea-card:hover { border-color: var(--accent); background: var(--card); transform: translateX(4px); }
 
-    .tarea-card:hover {
-      border-color: var(--accent);
-      background: var(--card);
-      transform: translateX(4px);
-    }
+    .tarea-num { font-size: 11px; font-weight: 700; color: var(--accent2); min-width: 28px; font-family: monospace; letter-spacing: 1px; }
 
-    .tarea-num {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--accent2);
-      min-width: 28px;
-      font-family: monospace;
-      letter-spacing: 1px;
-    }
+    .tarea-info { flex: 1; }
 
-    .tarea-info {
-      flex: 1;
-    }
+    .tarea-titulo { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
 
-    .tarea-titulo {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
+    .tarea-url { font-size: 12px; color: var(--muted); font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 400px; }
 
-    .tarea-url {
-      font-size: 12px;
-      color: var(--muted);
-      font-family: monospace;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 400px;
-    }
+    .tarea-arrow { color: var(--accent); font-size: 18px; opacity: 0; transition: opacity 0.2s, transform 0.2s; }
 
-    .tarea-arrow {
-      color: var(--accent);
-      font-size: 18px;
-      opacity: 0;
-      transition: opacity 0.2s, transform 0.2s;
-    }
+    .tarea-card:hover .tarea-arrow { opacity: 1; transform: translateX(3px); }
 
-    .tarea-card:hover .tarea-arrow {
-      opacity: 1;
-      transform: translateX(3px);
-    }
+    .status { display: flex; align-items: center; gap: 10px; padding: 20px 24px; border-radius: 12px; font-size: 14px; }
 
-    /* ── ESTADOS ── */
-    .status {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 20px 24px;
-      border-radius: 12px;
-      font-size: 14px;
-    }
+    .status.loading { background: var(--surface); border: 1px dashed var(--border); color: var(--muted); }
 
-    .status.loading {
-      background: var(--surface);
-      border: 1px dashed var(--border);
-      color: var(--muted);
-    }
+    .status.error { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.3); color: #f87171; }
 
-    .status.error {
-      background: rgba(239,68,68,0.08);
-      border: 1px solid rgba(239,68,68,0.3);
-      color: #f87171;
-    }
-
-    .spinner {
-      width: 16px; height: 16px;
-      border: 2px solid var(--border);
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
+    .spinner { width: 16px; height: 16px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; }
 
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 24px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 12px;
-    }
+    footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }
 
-    .dot {
-      display: inline-block;
-      width: 6px; height: 6px;
-      background: var(--success);
-      border-radius: 50%;
-      margin-right: 6px;
-      vertical-align: middle;
-    }
-
-    @media (max-width: 600px) {
-      .hero, .main { padding-left: 20px; padding-right: 20px; }
-      .badges { flex-direction: column; }
-      .tarea-url { max-width: 200px; }
-    }
+    .dot { display: inline-block; width: 6px; height: 6px; background: var(--success); border-radius: 50%; margin-right: 6px; vertical-align: middle; }
   </style>
 </head>
 <body>
 
-  <!-- HERO / DATOS ESCOLARES -->
   <header class="hero">
     <div class="hero-inner">
       <p class="eyebrow">Portafolio Académico · Semestre 2025</p>
@@ -276,39 +103,26 @@
       <div class="badges">
         <div class="badge">
           <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
           </svg>
-          <div>
-            <div class="badge-label">Matrícula</div>
-            <div class="badge-value">21020001</div>
-          </div>
+          <div><div class="badge-label">Matrícula</div><div class="badge-value">21020001</div></div>
         </div>
         <div class="badge">
           <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <path d="M9 9h6M9 12h6M9 15h4"/>
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/>
           </svg>
-          <div>
-            <div class="badge-label">Grupo</div>
-            <div class="badge-value">ISC – 5°A</div>
-          </div>
+          <div><div class="badge-label">Grupo</div><div class="badge-value">ISC – 5°A</div></div>
         </div>
         <div class="badge">
           <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
           </svg>
-          <div>
-            <div class="badge-label">Materia</div>
-            <div class="badge-value">Desarrollo Web</div>
-          </div>
+          <div><div class="badge-label">Materia</div><div class="badge-value">Desarrollo Web</div></div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- TAREAS -->
   <main class="main">
     <div class="section-header">
       <span class="section-title">Tareas del Semestre</span>
@@ -328,37 +142,37 @@
   </footer>
 
   <script>
-   
-const url = '/tareas'; 
+    document.addEventListener('DOMContentLoaded', () => {
+      const contenedor = document.getElementById('lista-tareas');
 
-
-fetch('url')
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Asegúrate de que este ID coincida EXACTAMENTE con el de tu HTML
-    const contenedor = document.getElementById('contenedor-tareas');
-
-    if (!contenedor) {
-        console.error("Error: No se encontró el elemento con ID 'contenedor-tareas' en tu HTML.");
-        return;
-    }
-
-    fetch('/tareas')
+      fetch('/tareas')
         .then(response => response.json())
         .then(data => {
-            contenedor.innerHTML = ''; // Limpiamos el mensaje de "Cargando..."
+          contenedor.innerHTML = ''; // Limpiamos el loading
+          
+          data.forEach((tarea, index) => {
+            const a = document.createElement('a');
+            a.className = 'tarea-card';
+            a.href = tarea.url || '#';
+            a.target = '_blank';
             
-            data.forEach(tarea => {
-                const item = document.createElement('div');
-                item.innerHTML = `<h3>${tarea.titulo}</h3><a href="${tarea.url}" target="_blank">Ver tarea</a>`;
-                contenedor.appendChild(item);
-            });
+            a.innerHTML = `
+              <div class="tarea-num">${index + 1}</div>
+              <div class="tarea-info">
+                <div class="tarea-titulo">${tarea.titulo}</div>
+                <div class="tarea-url">${tarea.url}</div>
+              </div>
+              <div class="tarea-arrow">→</div>
+            `;
+            
+            contenedor.appendChild(a);
+          });
         })
         .catch(error => {
-            console.error('Error al obtener datos:', error);
-            contenedor.innerHTML = '<p>Error al cargar las tareas.</p>';
+          console.error('Error:', error);
+          contenedor.innerHTML = '<div class="status error">Error al cargar tareas.</div>';
         });
-});
+    });
   </script>
-
 </body>
 </html>
