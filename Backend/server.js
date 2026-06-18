@@ -10,10 +10,10 @@ app.use(express.json());
 
 // Conexión a MySQL usando variables de entorno (Railway las inyecta automáticamente)
 const db = mysql.createConnection({
-  host:     process.env.MYSQLHOST     || 'localhost',
+  host:     process.env.MYSQLHOST     || 'mysql.railway.internal',
   user:     process.env.MYSQLUSER     || 'root',
-  password: process.env.MYSQLPASSWORD || '',
-  database: process.env.MYSQLDATABASE || 'tareas_db',
+  password: process.env.MYSQLPASSWORD || 'ekicWfoxWuhFySJJgxoTaAUZxSYfOZZj',
+  database: process.env.MYSQLDATABASE || 'rayway',
   port:     process.env.MYSQLPORT     || 3306,
   ssl: process.env.MYSQLHOST ? { rejectUnauthorized: false } : false
 });
