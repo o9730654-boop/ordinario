@@ -328,48 +328,23 @@
   </footer>
 
   <script>
-    const API_URL = fetch('/tareas');
+   
+const url = '/tareas'; 
 
-    async function cargarTareas() {
-      const contenedor = document.getElementById('lista-tareas');
 
-      try {
-        const res = await fetch(API_URL);
-
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-        const tareas = await res.json();
-
-        if (!tareas.length) {
-          contenedor.innerHTML = `
-            <div class="status error">
-              ⚠️ No se encontraron tareas en la base de datos.
-            </div>`;
-          return;
-        }
-
-        contenedor.innerHTML = tareas.map((t, i) => `
-          <a class="tarea-card" href="${t.url}" target="_blank" rel="noopener noreferrer">
-            <span class="tarea-num">${String(i + 1).padStart(2, '0')}</span>
-            <div class="tarea-info">
-              <div class="tarea-titulo">${t.titulo}</div>
-              <div class="tarea-url">${t.url}</div>
-            </div>
-            <span class="tarea-arrow">→</span>
-          </a>
-        `).join('');
-
-      } catch (err) {
-        contenedor.innerHTML = `
-          <div class="status error">
-            ✕ No se pudo conectar con la API.<br/>
-            <small>Verifica que el servidor esté corriendo en <code>http://localhost:3000</code></small>
-          </div>`;
-        console.error('Error al cargar tareas:', err);
-      }
-    }
-
-    cargarTareas();
+fetch(url)
+  .then(response => {
+      if (!response.ok) throw new Error('Error en la respuesta');
+      return response.json();
+  })
+  .then(data => {
+      console.log('Datos recibidos:', data);
+     
+  })
+  .catch(error => {
+      console.error('Error:', error);
+     
+  });
   </script>
 
 </body>
