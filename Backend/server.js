@@ -72,6 +72,25 @@ app.get('/tareas', (req, res) => {
   });
 });
 
+const fs = require('fs');
+
+app.get('/debug', (req, res) => {
+    const rootDir = process.cwd(); // ¿Dónde está parado el servidor realmente?
+    const frontendDir = path.join(rootDir, 'Frontend'); 
+    
+    let mensaje = `Directorio raíz del servidor: ${rootDir}<br>`;
+    
+    if (fs.existsSync(frontendDir)) {
+        const archivos = fs.readdirSync(frontendDir);
+        mensaje += `¡La carpeta Frontend SÍ existe! Contiene: ${archivos.join(', ')}`;
+    } else {
+        mensaje += `ERROR: La carpeta 'Frontend' NO existe en ${frontendDir}.<br>`;
+        mensaje += `Contenido de la raíz: ${fs.readdirSync(rootDir).join(', ')}`;
+    }
+    
+    res.send(mensaje);
+});
+
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
