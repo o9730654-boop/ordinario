@@ -333,29 +333,31 @@ const url = '/tareas';
 
 
 fetch('url')
-  .then(response => response.json())
-  .then(data => {
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Asegúrate de que este ID coincida EXACTAMENTE con el de tu HTML
+    const contenedor = document.getElementById('contenedor-tareas');
 
-      const contenedor = document.getElementById('contenedor-tareas'); 
-      
-      contenedor.innerHTML = ''; 
+    if (!contenedor) {
+        console.error("Error: No se encontró el elemento con ID 'contenedor-tareas' en tu HTML.");
+        return;
+    }
 
-      data.forEach(tarea => {
-          const div = document.createElement('div');
-          div.className = 'tarea-item'; 
-          
-          div.innerHTML = `
-              <h3>${tarea.titulo}</h3>
-              <a href="${tarea.url}" target="_blank">Ir a la tarea</a>
-          `;
-          
-          contenedor.appendChild(div);
-      });
-  })
-  .catch(error => {
-      console.error('Error:', error);
-      document.getElementById('contenedor-tareas').innerHTML = 'Error al cargar tareas.';
-  });
+    fetch('/tareas')
+        .then(response => response.json())
+        .then(data => {
+            contenedor.innerHTML = ''; // Limpiamos el mensaje de "Cargando..."
+            
+            data.forEach(tarea => {
+                const item = document.createElement('div');
+                item.innerHTML = `<h3>${tarea.titulo}</h3><a href="${tarea.url}" target="_blank">Ver tarea</a>`;
+                contenedor.appendChild(item);
+            });
+        })
+        .catch(error => {
+            console.error('Error al obtener datos:', error);
+            contenedor.innerHTML = '<p>Error al cargar las tareas.</p>';
+        });
+});
   </script>
 
 </body>
