@@ -328,7 +328,7 @@
   </footer>
 
   <script>
-    const API_URL = 'http://localhost:3000/tareas';
+    const API_URL = fetch('/tareas');
 
     async function cargarTareas() {
       const contenedor = document.getElementById('lista-tareas');
