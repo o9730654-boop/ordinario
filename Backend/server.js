@@ -63,6 +63,13 @@ app.get('/tareas', (req, res) => {
 
 const path = require('path');
 
+fetch('/tareas') 
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); 
+   
+  });
+
 app.use(express.static('Frontend')); 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../Frontend/index.html'));
