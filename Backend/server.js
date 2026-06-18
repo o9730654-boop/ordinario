@@ -63,8 +63,7 @@ app.get('/tareas', (req, res) => {
 
 const path = require('path');
 
-app.use(express.static(path.join(__dirname, '../Frontend')));
-
+app.use(express.static('Frontend')); 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../Frontend/index.html'));
 });
